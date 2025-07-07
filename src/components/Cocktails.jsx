@@ -4,6 +4,7 @@ import { cocktailLists, mockTailLists } from "../constants/index.js";
 
 const Cocktails = () => {
   useGSAP(() => {
+    // gsap 内部会计算，如果无法到达 end ，则不会应用动画
     const parallaxTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: "#cocktails",
