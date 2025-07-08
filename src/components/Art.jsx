@@ -9,6 +9,8 @@ const Art = () => {
   useGSAP(() => {
     const start = isMobile ? "top 20%" : "top top";
 
+    // pin 会给当前的元素外面在套一层，这一层的宽高会由 start end 自动计算，调整，使得容器的 end 能够到达指定的位置
+    // 如果不加 pin ，元素只有一页，无法到达 end，不能动画
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: "#art",
@@ -16,6 +18,7 @@ const Art = () => {
         end: "bottom center",
         scrub: 1.5,
         pin: true,
+        markers: true,
       },
     });
 
